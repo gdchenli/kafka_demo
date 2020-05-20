@@ -111,7 +111,7 @@ func (k *Kafka) Connect() error {
 	if k.ClientID != "" {
 		config.ClientID = k.ClientID
 	} else {
-		config.ClientID = "inventory_service"
+		config.ClientID = "kafka_demo"
 	}
 
 	config.Producer.RequiredAcks = sarama.WaitForAll
