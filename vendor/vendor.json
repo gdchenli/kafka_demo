@@ -3,16 +3,22 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "pRlZR/p0DeyOP9e2X0pQhYWtJsY=",
+			"path": "github.com/Gurpartap/logrus-stack",
+			"revision": "89c00d8a28f43c567d92eb81a2945301a6a9fbb9",
+			"revisionTime": "2017-07-10T17:09:04Z"
+		},
+		{
 			"checksumSHA1": "sdIyHghzODicW5YnYriauKdtCKY=",
 			"path": "github.com/Shopify/sarama",
 			"revision": "1358e9c6e61694cd61b2daae79f5aa4b8073c976",
 			"revisionTime": "2019-10-09T14:47:57Z"
 		},
 		{
-			"checksumSHA1": "va8quO5bNwdYMV5i7vER9IK4kPI=",
+			"checksumSHA1": "al43W4TWRdznwfxOWp4egKcL39c=",
 			"path": "github.com/bsm/sarama-cluster",
-			"revision": "d5779253526cc8a3129a0e5d7cc429f4b4473ab4",
-			"revisionTime": "2019-04-23T07:38:34Z"
+			"revision": "c618e605e15c0d7535f6c96ff8efbb0dba4fd66c",
+			"revisionTime": "2018-08-16T15:22:32Z"
 		},
 		{
 			"checksumSHA1": "CSPbwbyzqA6sfORicn4HFtIhF/c=",
@@ -37,6 +43,12 @@
 			"path": "github.com/eapache/queue",
 			"revision": "093482f3f8ce946c05bcba64badd2c82369e084d",
 			"revisionTime": "2018-02-27T14:14:24Z"
+		},
+		{
+			"checksumSHA1": "R7YqZ9k/RtXzCqV9cPMmsfe4oX8=",
+			"path": "github.com/facebookgo/stack",
+			"revision": "751773369052141c013c6e827a71e8f35c07879c",
+			"revisionTime": "2016-02-09T18:44:15Z"
 		},
 		{
 			"checksumSHA1": "BE9X1dd1/VdIPGj9J2PHHFkLwlo=",
@@ -159,6 +171,18 @@
 			"revisionTime": "2020-04-12T19:18:38Z"
 		},
 		{
+			"checksumSHA1": "D5jVUTl7HrJrdH95IxfLeSZifKQ=",
+			"path": "github.com/lestrrat/go-file-rotatelogs",
+			"revision": "d3151e2a480fdcd05fb97102f5310a47d96274c4",
+			"revisionTime": "2018-02-23T00:06:17Z"
+		},
+		{
+			"checksumSHA1": "VFdd7/gnXSPEQqUMSI9ufakRMnI=",
+			"path": "github.com/lestrrat/go-strftime",
+			"revision": "ba3bf9c1d0421aa146564a632931730344f1f9f1",
+			"revisionTime": "2018-02-20T04:22:22Z"
+		},
+		{
 			"checksumSHA1": "rmPrVPSxkWI5TXpzYWb2LZW03UU=",
 			"path": "github.com/magiconair/properties",
 			"revision": "a586bb8b7deaae2a0eb4c6c8b63a539425628137",
@@ -189,10 +213,28 @@
 			"revisionTime": "2020-04-29T09:22:03Z"
 		},
 		{
+			"checksumSHA1": "Qo2E/26skb9mZQ3b2Mh6QDkpBLs=",
+			"path": "github.com/pkg/errors",
+			"revision": "614d223910a179a466c1767a985424175c39b465",
+			"revisionTime": "2020-01-14T19:47:44Z"
+		},
+		{
 			"checksumSHA1": "+bQFFYUwDQtQYiznID7DlnEYRfU=",
 			"path": "github.com/rcrowley/go-metrics",
 			"revision": "10cdbea86bc0b922507ce91d43f4f78a5bea2e8f",
 			"revisionTime": "2020-03-13T00:54:56Z"
+		},
+		{
+			"checksumSHA1": "H/uL3j4L8U+//7NvzC+j5y8aaH4=",
+			"path": "github.com/rifflock/lfshook",
+			"revision": "b9218ef580f59a2e72dad1aa33d660150445d05a",
+			"revisionTime": "2018-09-20T16:41:30Z"
+		},
+		{
+			"checksumSHA1": "VyJTwYmnbWXiPNyKNiBODsJhFM4=",
+			"path": "github.com/sirupsen/logrus",
+			"revision": "60c74ad9be0d874af0ab0daef6ab07c5c5911f0d",
+			"revisionTime": "2020-05-02T13:06:20Z"
 		},
 		{
 			"checksumSHA1": "Fn11wmF5DJXrenbSsnGS7KEMt9o=",
@@ -499,6 +541,12 @@
 			"path": "gopkg.in/yaml.v2",
 			"revision": "53403b58ad1b561927d19068c655246f2db79d48",
 			"revisionTime": "2020-01-21T17:19:40Z"
+		},
+		{
+			"checksumSHA1": "Z9yweF786TA/F/Nbh4YATiBHUWo=",
+			"path": "thirdparty_service/config",
+			"revision": "2adf36ca95b1324ffbe8273fa550ce2c3412990d",
+			"revisionTime": "2020-04-30T06:43:58Z"
 		}
 	],
 	"rootPath": "kafka_demo"

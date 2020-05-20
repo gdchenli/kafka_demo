@@ -106,7 +106,7 @@ func (c *Consumer) Messages() <-chan *sarama.ConsumerMessage { return c.messages
 
 // Partitions returns the read channels for individual partitions of this broker.
 //
-// This channel will only return if Config.Group.Mode option is set to
+// This will channel will only return if Config.Group.Mode option is set to
 // ConsumerModePartitions.
 //
 // The Partitions() channel must be listened to for the life of this consumer;
@@ -167,7 +167,7 @@ func (c *Consumer) MarkOffsets(s *OffsetStash) {
 	}
 }
 
-// ResetOffset marks the provided message as processed, alongside a metadata string
+// ResetOffsets marks the provided message as processed, alongside a metadata string
 // that represents the state of the partition consumer at that point in time. The
 // metadata string can be used by another consumer to restore that state, so it
 // can resume consumption.
@@ -350,7 +350,7 @@ func (c *Consumer) nextTick() {
 
 	// Issue rebalance start notification
 	if c.client.config.Group.Return.Notifications {
-		c.handleNotification(newNotification(c.subs.Info()))
+		c.handleNotification(notification)
 	}
 
 	// Rebalance, fetch new subscriptions
@@ -469,8 +469,7 @@ func (c *Consumer) cmLoop(stopped <-chan none) {
 
 func (c *Consumer) rebalanceError(err error, n *Notification) {
 	if n != nil {
-		// Get a copy of the notification that represents the notification's error state
-		n = n.error()
+		n.Type = RebalanceError
 		c.handleNotification(n)
 	}
 
@@ -677,7 +676,7 @@ func (c *Consumer) joinGroup() (*balancer, error) {
 			return nil, err
 		}
 
-		strategy, err = newBalancerFromMeta(c.client, Strategy(resp.GroupProtocol), members)
+		strategy, err = newBalancerFromMeta(c.client, members)
 		if err != nil {
 			return nil, err
 		}
@@ -702,7 +701,7 @@ func (c *Consumer) syncGroup(strategy *balancer) (map[string][]int32, error) {
 	}
 
 	if strategy != nil {
-		for memberID, topics := range strategy.Perform() {
+		for memberID, topics := range strategy.Perform(c.client.config.Group.PartitionStrategy) {
 			if err := req.AddGroupAssignmentMember(memberID, &sarama.ConsumerGroupMemberAssignment{
 				Topics: topics,
 			}); err != nil {
@@ -825,18 +824,14 @@ func (c *Consumer) createConsumer(tomb *loopTomb, topic string, partition int32,
 	// Start partition consumer goroutine
 	tomb.Go(func(stopper <-chan none) {
 		if c.client.config.Group.Mode == ConsumerModePartitions {
-			pc.waitFor(stopper)
+			pc.waitFor(stopper, c.errors)
 		} else {
 			pc.multiplex(stopper, c.messages, c.errors)
 		}
 	})
 
 	if c.client.config.Group.Mode == ConsumerModePartitions {
-		select {
-		case c.partitions <- pc:
-		case <-c.dying:
-			pc.Close()
-		}
+		c.partitions <- pc
 	}
 	return nil
 }

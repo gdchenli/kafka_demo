@@ -68,25 +68,6 @@ func (n *Notification) success(current map[string][]int32) *Notification {
 	return o
 }
 
-func (n *Notification) error() *Notification {
-	o := &Notification{
-		Type:     RebalanceError,
-		Claimed:  make(map[string][]int32),
-		Released: make(map[string][]int32),
-		Current:  make(map[string][]int32),
-	}
-	for topic, partitions := range n.Claimed {
-		o.Claimed[topic] = append(make([]int32, 0, len(partitions)), partitions...)
-	}
-	for topic, partitions := range n.Released {
-		o.Released[topic] = append(make([]int32, 0, len(partitions)), partitions...)
-	}
-	for topic, partitions := range n.Current {
-		o.Current[topic] = append(make([]int32, 0, len(partitions)), partitions...)
-	}
-	return o
-}
-
 // --------------------------------------------------------------------
 
 type topicInfo struct {
@@ -135,13 +116,12 @@ func (info topicInfo) RoundRobin() map[string][]int32 {
 // --------------------------------------------------------------------
 
 type balancer struct {
-	client   sarama.Client
-	topics   map[string]topicInfo
-	strategy Strategy
+	client sarama.Client
+	topics map[string]topicInfo
 }
 
-func newBalancerFromMeta(client sarama.Client, strategy Strategy, members map[string]sarama.ConsumerGroupMemberMetadata) (*balancer, error) {
-	balancer := newBalancer(client, strategy)
+func newBalancerFromMeta(client sarama.Client, members map[string]sarama.ConsumerGroupMemberMetadata) (*balancer, error) {
+	balancer := newBalancer(client)
 	for memberID, meta := range members {
 		for _, topic := range meta.Topics {
 			if err := balancer.Topic(topic, memberID); err != nil {
@@ -152,11 +132,10 @@ func newBalancerFromMeta(client sarama.Client, strategy Strategy, members map[st
 	return balancer, nil
 }
 
-func newBalancer(client sarama.Client, strategy Strategy) *balancer {
+func newBalancer(client sarama.Client) *balancer {
 	return &balancer{
 		client: client,
 		topics: make(map[string]topicInfo),
-		strategy: strategy,
 	}
 }
 
@@ -177,10 +156,10 @@ func (r *balancer) Topic(name string, memberID string) error {
 	return nil
 }
 
-func (r *balancer) Perform() map[string]map[string][]int32 {
+func (r *balancer) Perform(s Strategy) map[string]map[string][]int32 {
 	res := make(map[string]map[string][]int32, 1)
 	for topic, info := range r.topics {
-		for memberID, partitions := range info.Perform(r.strategy) {
+		for memberID, partitions := range info.Perform(s) {
 			if _, ok := res[memberID]; !ok {
 				res[memberID] = make(map[string][]int32, 1)
 			}
