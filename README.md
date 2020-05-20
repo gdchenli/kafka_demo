@@ -1,6 +1,11 @@
 
 # kafka demo
 
+程序中使用的kafka包为   
+https://github.com/Shopify/sarama 版本 v1.24.0   
+https://github.com/bsm/sarama-cluster 版本 v2.1.15  
+
+
 ### 目录结构
 ```
 .
