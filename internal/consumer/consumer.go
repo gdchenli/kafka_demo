@@ -20,7 +20,7 @@ type Service struct{}
 func (service *Service) Consumer() {
 	kafkaConsumerConfig, err := service.getConsumerConfig()
 	if err != nil {
-		logrus.Errorf("kafka消费消息失败，错误：%v", err.Error())
+		logrus.Errorf("kafka配置错误，错误：%v", err.Error())
 		return
 	}
 
