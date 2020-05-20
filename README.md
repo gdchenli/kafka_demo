@@ -27,12 +27,13 @@
 ### 执行步骤
 
 #### 运行消费者程序
-1. 复制配置文件
+1.复制配置文件
 ```
 cp  cmd/consumer/config.toml.example  cmd/consumer/config.toml
 ```
 请在config.toml文件中，填写kafka的相关配置   
-2. 编译
+
+2.编译
 ```
 cd cmd/consumer
 go build .
@@ -40,12 +41,13 @@ go build .
 ```
 
 #### 运行生产者程序
-1. 复制配置文件
+1.复制配置文件
 ```
 cp  cmd/producer/config.toml.example  cmd/producer/config.toml
 ```
 请在config.toml文件中，填写kafka的相关配置   
-2. 编译
+
+2.编译
 ```
 cd cmd/producer
 go build .
