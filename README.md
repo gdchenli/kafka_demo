@@ -5,22 +5,22 @@
 ```
 .
 ├── README.md
-├── cmd             #可执行程序文件夹
-│   ├── consumer    #消费者入口
-│   │   ├── config.toml.example
-│   │   ├── logs
-│   │   └── main.go
-│   └── producer    #生产者入口
-│   │   ├── config.toml.example
-│   │   ├── logs
-│   │   └── main.go
+├── cmd                         #可执行程序文件夹
+│   ├── consumer                #消费者入口文件夹
+│   │   ├── config.toml.example #示例配置文件
+│   │   ├── logs                #日志文件夹
+│   │   └── main.go             #入口文件
+│   └── producer                #生产者入口文件夹
+│   │   ├── config.toml.example #示例配置文件
+│   │   ├── logs                #日志文件夹
+│   │   └── main.go             #入口文件
 ├── internal        
-│   ├── common      #公共包
-│   ├── consumer    #消费者
-│   └── producer    #生产者
-├── pkg             #工具包文件夹
-│   └── kafka       #kafka调用封装
-└── vendor          #依赖包文件夹
+│   ├── common                  #公共包
+│   ├── consumer                #消费者
+│   └── producer                #生产者
+├── pkg                         #工具包文件夹
+│   └── kafka                   #kafka调用封装
+└── vendor                      #依赖包文件夹
 
 ```
 
