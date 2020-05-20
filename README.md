@@ -33,11 +33,9 @@ cp  cmd/consumer/config.toml.example  cmd/consumer/config.toml
 ```
 请在config.toml文件中，填写kafka的相关配置   
 
-2.编译
+2.编译并执行
 ```
-cd cmd/consumer
-go build .
-./consumer
+cd cmd/consumer && go build . && ./consumer
 ```
 
 #### 运行生产者程序
@@ -47,9 +45,7 @@ cp  cmd/producer/config.toml.example  cmd/producer/config.toml
 ```
 请在config.toml文件中，填写kafka的相关配置   
 
-2.编译
+2.编译并执行
 ```
-cd cmd/producer
-go build .
-./producer
+cd cmd/producer && go build . && ./producer
 ```
