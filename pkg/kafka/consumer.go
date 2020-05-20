@@ -1,9 +1,6 @@
 package kafka
 
 import (
-	"fmt"
-	"os"
-
 	cluster "github.com/bsm/sarama-cluster"
 )
 
@@ -37,7 +34,7 @@ func Consume(consumer *ConsumerConfig, kafkaConsumer kafkaConsumerInterface) {
 			// start a separate goroutine to consume messages
 			go func(pc cluster.PartitionConsumer) {
 				for msg := range pc.Messages() {
-					fmt.Fprintf(os.Stdout, "Topic:%s \n Partition: %d  \n Offset: %d \n Value:%s\n ", msg.Topic, msg.Partition, msg.Offset, string(msg.Value))
+					//fmt.Fprintf(os.Stdout, "Topic:%s \n Partition: %d  \n Offset: %d \n Value:%s\n ", msg.Topic, msg.Partition, msg.Offset, string(msg.Value))
 					kafkaConsumer.HandleMsg(msg.Value)
 					c.MarkOffset(msg, "") // mark message as processed
 				}

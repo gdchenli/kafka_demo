@@ -1,0 +1,9 @@
+{"level":"info","msg":"消费kafka消息this is a test message","time":"2020-05-20 22:45:07.636"}
+{"level":"info","msg":"消费kafka消息this is a test message","time":"2020-05-20 22:45:42.444"}
+{"level":"info","msg":"消费kafka消息:this is a test message","time":"2020-05-20 22:46:42.659"}
+{"level":"info","msg":"消费kafka消息:this is a test message","time":"2020-05-20 22:46:42.660"}
+{"level":"info","msg":"消费kafka消息:this is a test message,time:2020-05-20 22:50:18","time":"2020-05-20 22:50:30.809"}
+{"level":"info","msg":"消费kafka消息:this is a test message,time:2020-05-20 22:50:23","time":"2020-05-20 22:50:30.809"}
+{"level":"info","msg":"消费kafka消息:this is a test message,time:2020-05-20 22:50:24","time":"2020-05-20 22:50:30.809"}
+{"level":"info","msg":"消费kafka消息:{\"data\":\"this is a message\",\"time\":\"2020-05-20 22:52:36\"}","time":"2020-05-20 22:52:36.730"}
+{"level":"info","msg":"消费kafka消息:{\"data\":\"this is a message\",\"time\":\"2020-05-20 22:52:37\"}","time":"2020-05-20 22:52:38.004"}

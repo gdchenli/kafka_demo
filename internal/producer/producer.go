@@ -2,7 +2,7 @@ package producer
 
 import (
 	"errors"
-	"kafka_demo/internal/config"
+	"kafka_demo/internal/common/config"
 	"kafka_demo/pkg/kafka"
 	"strings"
 )

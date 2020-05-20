@@ -1,0 +1,4 @@
+[kafka_demo_consumer]
+brokers="localhost:9092"
+topic="add_shipment_track"
+group_id="kafka_demo_consumer"

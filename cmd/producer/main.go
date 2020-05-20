@@ -1,13 +1,23 @@
 package main
 
 import (
-	"fmt"
+	"kafka_demo/internal/common/log"
 	"kafka_demo/internal/producer"
+	"time"
+
+	"github.com/sirupsen/logrus"
 )
 
+func init() {
+	log.Init()
+}
+
+const TimeLayout = "2006-01-02 15:04:05"
+
 func main() {
-	msg := `{"website_id":33,"data":{"website_id":33,"store_id":150,"increment_id":"20200518192100001","three_part_order_number":"","carrier_code":"ucs","track_number":"9975660274846","created_at":"2020-04-23 08:36:31"}}`
+	nowTime := time.Now().Format(TimeLayout)
+	msg := "{\"data\":\"this is a message\",\"time\":\"" + nowTime + "\"}"
 	if err := new(producer.Service).ProduceMsg(msg); err != nil {
-		fmt.Println(err)
+		logrus.Errorf("发布消息失败，错误：%v", err.Error())
 	}
 }
