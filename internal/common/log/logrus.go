@@ -1,10 +1,10 @@
 package log
 
 import (
+	"kafka_demo/internal/common/config"
 	"os"
 	"path"
 	"path/filepath"
-	"thirdparty_service/config"
 	"time"
 
 	logrus_stack "github.com/Gurpartap/logrus-stack"
