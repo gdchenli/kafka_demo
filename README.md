@@ -18,8 +18,8 @@
 │   ├── common                  #公共包
 │   ├── consumer                #消费者
 │   └── producer                #生产者
-├── pkg                         #工具包文件夹
-└──       └── kafka                   #kafka调用封装
+├── pkg                         #工具包文件夹
+└── └── kafka                   #kafka调用封装
 ```
 
 ### 执行步骤
