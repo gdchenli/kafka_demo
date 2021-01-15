@@ -19,7 +19,7 @@
 │   ├── consumer                #消费者
 │   └── producer                #生产者
 ├── pkg                         #工具包文件夹
-│   └── kafka                   #kafka调用封装
+└──       └── kafka                   #kafka调用封装
 
 
 ```
