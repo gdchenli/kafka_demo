@@ -1,0 +1,4 @@
+[kafka_demo_producer]
+brokers="localhost:9092"
+topic="add_shipment_track"
+client_id="kafka_demo_producer"
